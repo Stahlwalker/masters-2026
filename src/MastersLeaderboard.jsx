@@ -168,23 +168,67 @@ export default function MastersLeaderboard() {
         gap: 6,
         flexWrap: "wrap",
         alignItems: "center",
+        justifyContent: "space-between",
         borderBottom: "1px solid var(--color-border-tertiary)",
         background: "linear-gradient(to bottom, #f5f3ee, #faf9f6)",
       }}>
-        {DAYS.map((d, i) => (
-          <button
-            key={i}
-            onClick={() => setActiveDay(i)}
-            className={i === activeDay ? "round-btn-active" : ""}
-            style={pillBtn(
-              i === activeDay,
-              { color: "#fff" },
-              { background: "transparent", color: "#595959", border: "1px solid #d0cbc0" }
-            )}
+        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+          {DAYS.map((d, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveDay(i)}
+              className={i === activeDay ? "round-btn-active" : ""}
+              style={pillBtn(
+                i === activeDay,
+                { color: "#fff" },
+                { background: "transparent", color: "#595959", border: "1px solid #d0cbc0" }
+              )}
+            >
+              {d}
+            </button>
+          ))}
+        </div>
+        <div style={{ display: "flex", gap: 8, flexShrink: 0 }}>
+          <a
+            href="https://www.masters.com/en_US/scores/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              padding: "7px 14px",
+              fontSize: 12,
+              fontWeight: 600,
+              borderRadius: 30,
+              border: `1px solid ${DARK_GREEN}`,
+              color: DARK_GREEN,
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              gap: 5,
+            }}
           >
-            {d}
-          </button>
-        ))}
+            📋 Leaderboard
+          </a>
+          <a
+            href="https://www.masters.com/en_US/live/index.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              padding: "7px 14px",
+              fontSize: 12,
+              fontWeight: 600,
+              borderRadius: 30,
+              background: `linear-gradient(135deg, #c0392b, #922b21)`,
+              color: "#fff",
+              textDecoration: "none",
+              display: "flex",
+              alignItems: "center",
+              gap: 5,
+              boxShadow: "0 2px 8px rgba(192,57,43,0.35)",
+            }}
+          >
+            🔴 Watch Live
+          </a>
+        </div>
       </div>
 
       {/* Leaderboard */}
