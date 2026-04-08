@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&display=swap');
+
+:root {
+  --masters-green: #006747;
+  --masters-dark-green: #1C4932;
+  --masters-mid-green: #107D57;
+  --masters-yellow: #FCE300;
+  --masters-bg: #F2F2F2;
+
+  /* Tiempos Headline not available on Google Fonts — fall back to Playfair Display (closest free match) */
+  --font-heading: 'Playfair Display', 'Times New Roman', serif;
+  --font-sans: 'Benton Sans', BentonSans, Arial, Helvetica, sans-serif;
+
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #595959;
+  --color-text-tertiary: #999;
+  --color-text-success: #006747;
+  --color-text-danger: #c0392b;
+  --color-text-info: #006747;
+
+  --color-background-primary: #ffffff;
+  --color-background-secondary: #f7f5ef;
+  --color-background-success: #e6f3ec;
+  --color-background-info: #e6f3ec;
+
+  --color-border-tertiary: #e0dbd0;
+  --color-border-secondary: #cbc6bb;
+  --color-border-info: #006747;
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 6px;
+  --border-radius-lg: 10px;
+  --border-radius-pill: 30px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--masters-bg);
+  font-family: var(--font-sans);
+}
+
+#root {
+  width: 100%;
+  padding: 0 0 32px;
+  background: #fff;
+  min-height: 100vh;
+}
