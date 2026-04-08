@@ -1,26 +1,26 @@
 import { useState, useEffect } from "react";
 
 const PARTICIPANTS = [
-  { name: "Floyd", pick1: "Scottie Scheffler", pick2: "Akshay Bhatia" },
-  { name: "Jackie", pick1: "Rory McIlroy", pick2: "Jordan Spieth" },
-  { name: "Tori", pick1: "Bryson DeChambeau", pick2: "Matt Fitzpatrick" },
-  { name: "Luke", pick1: "Ludvig Åberg", pick2: "Justin Thomas" },
-  { name: "Sandy", pick1: "J.J. Spaun", pick2: "Robert MacIntyre" },
-  { name: "Nate", pick1: "Justin Rose", pick2: "Cameron Young" },
-  { name: "Cathy", pick1: "Xander Schauffele", pick2: "Collin Morikawa" },
-  { name: "Conor", pick1: "Jon Rahm", pick2: "Tommy Fleetwood" },
+  { name: "Floyd", pick1: "Scottie Scheffler", pick2: "Akshay Bhatia",       winPct: "18.2%" },
+  { name: "Tori",  pick1: "Bryson DeChambeau", pick2: "Matt Fitzpatrick",    winPct: "13.7%" },
+  { name: "Conor", pick1: "Jon Rahm",          pick2: "Tommy Fleetwood",     winPct: "13.2%" },
+  { name: "Jackie",pick1: "Rory McIlroy",      pick2: "Jordan Spieth",       winPct: "9.1%"  },
+  { name: "Cathy", pick1: "Xander Schauffele", pick2: "Collin Morikawa",     winPct: "9.1%"  },
+  { name: "Nate",  pick1: "Justin Rose",       pick2: "Cameron Young",       winPct: "7.8%"  },
+  { name: "Luke",  pick1: "Ludvig Åberg",      pick2: "Justin Thomas",       winPct: "6.7%"  },
+  { name: "Sandy", pick1: "J.J. Spaun",        pick2: "Robert MacIntyre",    winPct: "4.6%"  },
 ];
 
 // Scores relative to par per round [R1, R2, R3, R4]. null = not yet played.
 const SCORES = {
   Floyd:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Jackie: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
   Tori:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Conor:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Jackie: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Cathy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Nate:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
   Luke:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
   Sandy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Nate:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Cathy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Conor:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
 };
 
 const DAYS = ["R1 (Thu)", "R2 (Fri)", "R3 (Sat)", "R4 (Sun)"];
@@ -194,14 +194,18 @@ export default function MastersLeaderboard() {
                     <span style={{ fontSize: 14, color: "#999", width: 28, flexShrink: 0 }}>
                       {trophy(idx + 1) || idx + 1}
                     </span>
-                    <span style={{
-                      fontFamily: "var(--font-heading)",
-                      fontWeight: 600,
-                      fontSize: 16,
-                      flex: 1,
-                      color: "#1a1a1a",
-                    }}>
-                      {p.name}
+                    <span style={{ flex: 1, display: "flex", alignItems: "center", gap: 6 }}>
+                      <span style={{
+                        fontFamily: "var(--font-heading)",
+                        fontWeight: 600,
+                        fontSize: 16,
+                        color: "#1a1a1a",
+                      }}>
+                        {p.name}
+                      </span>
+                      <span style={{ fontSize: 11, color: "#aaa", fontWeight: 400 }}>
+                        {p.winPct}
+                      </span>
                     </span>
                     <span style={{ fontWeight: 700, fontSize: 20, color: scoreColor(best) }}>
                       {formatScore(best)}
@@ -267,8 +271,9 @@ export default function MastersLeaderboard() {
                     <td style={{ padding: "11px 12px", fontSize: 13, color: "#aaa", width: 36 }}>
                       {trophy(idx + 1) || idx + 1}
                     </td>
-                    <td style={{ padding: "11px 10px", fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 15 }}>
-                      {p.name}
+                    <td style={{ padding: "11px 10px" }}>
+                      <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 15 }}>{p.name}</span>
+                      <span style={{ fontSize: 11, color: "#aaa", fontWeight: 400, marginLeft: 6 }}>{p.winPct}</span>
                     </td>
                     <td style={{
                       padding: "11px 10px", fontSize: 13,
@@ -305,11 +310,73 @@ export default function MastersLeaderboard() {
         )}
       </div>
 
-      {/* Footer */}
-      <div style={{ padding: "0 16px" }}>
+      {/* Projected Winner */}
+      <div style={{
+        display: "flex",
+        justifyContent: "center",
+        padding: "24px 16px 8px",
+      }}>
+        <div style={{
+          background: DARK_GREEN,
+          border: `2px solid ${YELLOW}`,
+          borderRadius: 12,
+          padding: "16px 32px",
+          textAlign: "center",
+          minWidth: 220,
+        }}>
+          <div style={{
+            fontSize: 11,
+            fontWeight: 600,
+            letterSpacing: 1.2,
+            textTransform: "uppercase",
+            color: YELLOW,
+            marginBottom: 6,
+          }}>
+            Projected Winner
+          </div>
+          <div style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: 26,
+            fontWeight: 700,
+            color: "#fff",
+          }}>
+            {sorted[0].name}
+          </div>
+          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 4 }}>
+            {sorted[0].pick1} · {sorted[0].pick2}
+          </div>
+        </div>
+      </div>
+
+      {/* Inline footer note */}
+      <div style={{ padding: "12px 16px 80px", textAlign: "center" }}>
         <p style={{ fontSize: 12, color: "#bbb", margin: 0 }}>
           Scores relative to par · best of two picks counts
         </p>
+      </div>
+
+      {/* Sticky footer */}
+      <div style={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        background: YELLOW,
+        padding: "10px 16px",
+        textAlign: "center",
+        zIndex: 100,
+      }}>
+        <span style={{ fontSize: 12, fontWeight: 600, color: DARK_GREEN }}>
+          Made by{" "}
+          <a
+            href="https://lukestahl.io/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: DARK_GREEN, textDecoration: "underline" }}
+          >
+            Luke Stahl
+          </a>
+        </span>
       </div>
     </div>
   );
