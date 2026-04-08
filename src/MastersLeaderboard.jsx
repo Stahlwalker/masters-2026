@@ -118,13 +118,23 @@ export default function MastersLeaderboard() {
 
       {/* Header */}
       <div style={{
-        background: DARK_GREEN,
-        padding: "20px 24px 16px",
+        background: `linear-gradient(160deg, #0f3d26 0%, ${DARK_GREEN} 40%, #1a5c3a 70%, #0d3321 100%)`,
+        padding: "28px 24px 22px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
         gap: 10,
+        position: "relative",
+        overflow: "hidden",
       }}>
+        {/* subtle radial glow behind logo */}
+        <div style={{
+          position: "absolute", top: 0, left: "50%",
+          transform: "translateX(-50%)",
+          width: 320, height: 160,
+          background: "radial-gradient(ellipse, rgba(252,227,0,0.08) 0%, transparent 70%)",
+          pointerEvents: "none",
+        }} />
         <img
           src="/masters-logo.png"
           alt="The Masters"
@@ -159,15 +169,16 @@ export default function MastersLeaderboard() {
         flexWrap: "wrap",
         alignItems: "center",
         borderBottom: "1px solid var(--color-border-tertiary)",
-        background: "#faf9f6",
+        background: "linear-gradient(to bottom, #f5f3ee, #faf9f6)",
       }}>
         {DAYS.map((d, i) => (
           <button
             key={i}
             onClick={() => setActiveDay(i)}
+            className={i === activeDay ? "round-btn-active" : ""}
             style={pillBtn(
               i === activeDay,
-              { background: DARK_GREEN, color: "#fff" },
+              { color: "#fff" },
               { background: "transparent", color: "#595959", border: "1px solid #d0cbc0" }
             )}
           >
@@ -201,7 +212,7 @@ export default function MastersLeaderboard() {
                     <span style={{
                       display: "inline-flex", alignItems: "center", justifyContent: "center",
                       width: 24, height: 24, borderRadius: "50%", flexShrink: 0, marginRight: 4,
-                      background: isLeader ? YELLOW : idx === 1 ? "#e8e8e8" : idx === 2 ? "#e0d4c0" : "transparent",
+                      background: isLeader ? `linear-gradient(135deg, #ffe600 0%, #fca500 100%)` : idx === 1 ? "linear-gradient(135deg, #e8e8e8 0%, #c8c8c8 100%)" : idx === 2 ? "linear-gradient(135deg, #e8d5b0 0%, #c8a96e 100%)" : "transparent",
                       fontSize: 12, fontWeight: 700,
                       color: isLeader ? DARK_GREEN : idx <= 2 ? "#555" : "#bbb",
                     }}>
@@ -249,7 +260,7 @@ export default function MastersLeaderboard() {
         ) : (
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
             <thead>
-              <tr style={{ background: DARK_GREEN }}>
+              <tr style={{ background: `linear-gradient(90deg, #0f3d26 0%, ${DARK_GREEN} 40%, #1a5c3a 100%)` }}>
                 {["#", "Person", "Pick 1", dayLabel, "Pick 2", dayLabel, "Best"].map((h, i) => (
                   <th key={i} style={{
                     textAlign: i <= 1 || i === 2 || i === 4 ? "left" : "center",
@@ -287,7 +298,7 @@ export default function MastersLeaderboard() {
                       <span style={{
                         display: "inline-flex", alignItems: "center", justifyContent: "center",
                         width: 24, height: 24, borderRadius: "50%",
-                        background: isLeader ? YELLOW : idx === 1 ? "#e8e8e8" : idx === 2 ? "#e0d4c0" : "transparent",
+                        background: isLeader ? `linear-gradient(135deg, #ffe600 0%, #fca500 100%)` : idx === 1 ? "linear-gradient(135deg, #e8e8e8 0%, #c8c8c8 100%)" : idx === 2 ? "linear-gradient(135deg, #e8d5b0 0%, #c8a96e 100%)" : "transparent",
                         fontSize: 12, fontWeight: 700,
                         color: isLeader ? DARK_GREEN : idx <= 2 ? "#555" : "#bbb",
                       }}>
@@ -339,34 +350,42 @@ export default function MastersLeaderboard() {
         justifyContent: "center",
         padding: "24px 16px 8px",
       }}>
-        <div style={{
-          background: `linear-gradient(135deg, ${DARK_GREEN} 0%, #0f3d26 100%)`,
+        <div className="shine-card" style={{
+          background: `linear-gradient(150deg, #1a5c3a 0%, ${DARK_GREEN} 45%, #0a2d1a 100%)`,
           border: `2px solid ${YELLOW}`,
-          borderRadius: 14,
-          padding: "20px 40px",
+          borderRadius: 16,
+          padding: "22px 48px",
           textAlign: "center",
-          minWidth: 240,
-          boxShadow: `0 4px 24px rgba(0,0,0,0.18), 0 0 0 1px rgba(252,227,0,0.1) inset`,
+          minWidth: 260,
+          boxShadow: `0 8px 32px rgba(0,0,0,0.28), 0 0 0 1px rgba(252,227,0,0.15) inset, 0 1px 0 rgba(255,255,255,0.06) inset`,
         }}>
           <div style={{
-            fontSize: 11,
-            fontWeight: 600,
-            letterSpacing: 1.2,
+            fontSize: 10,
+            fontWeight: 700,
+            letterSpacing: 1.8,
             textTransform: "uppercase",
             color: YELLOW,
-            marginBottom: 6,
+            marginBottom: 8,
+            textShadow: `0 0 12px rgba(252,227,0,0.5)`,
           }}>
-            Projected Winner
+            ✦ Projected Winner ✦
           </div>
           <div style={{
             fontFamily: "var(--font-heading)",
-            fontSize: 26,
+            fontSize: 30,
             fontWeight: 700,
             color: "#fff",
+            textShadow: "0 2px 12px rgba(0,0,0,0.4)",
+            lineHeight: 1.1,
           }}>
             {sorted[0].name}
           </div>
-          <div style={{ fontSize: 13, color: "rgba(255,255,255,0.6)", marginTop: 4 }}>
+          <div style={{
+            width: 32, height: 1,
+            background: `linear-gradient(90deg, transparent, ${YELLOW}, transparent)`,
+            margin: "10px auto 8px",
+          }} />
+          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", letterSpacing: 0.3 }}>
             {sorted[0].pick1} · {sorted[0].pick2}
           </div>
         </div>
@@ -385,7 +404,7 @@ export default function MastersLeaderboard() {
         bottom: 0,
         left: 0,
         right: 0,
-        background: YELLOW,
+        background: `linear-gradient(90deg, #f5d800 0%, ${YELLOW} 50%, #f5d800 100%)`,
         padding: "10px 16px",
         textAlign: "center",
         zIndex: 100,
