@@ -1,0 +1,316 @@
+import { useState, useEffect } from "react";
+
+const PARTICIPANTS = [
+  { name: "Floyd", pick1: "Scottie Scheffler", pick2: "Akshay Bhatia" },
+  { name: "Jackie", pick1: "Rory McIlroy", pick2: "Jordan Spieth" },
+  { name: "Tori", pick1: "Bryson DeChambeau", pick2: "Matt Fitzpatrick" },
+  { name: "Luke", pick1: "Ludvig Åberg", pick2: "Justin Thomas" },
+  { name: "Sandy", pick1: "J.J. Spaun", pick2: "Robert MacIntyre" },
+  { name: "Nate", pick1: "Justin Rose", pick2: "Cameron Young" },
+  { name: "Cathy", pick1: "Xander Schauffele", pick2: "Collin Morikawa" },
+  { name: "Conor", pick1: "Jon Rahm", pick2: "Tommy Fleetwood" },
+];
+
+// Scores relative to par per round [R1, R2, R3, R4]. null = not yet played.
+const SCORES = {
+  Floyd:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Jackie: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Tori:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Luke:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Sandy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Nate:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Cathy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Conor:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+};
+
+const DAYS = ["R1 (Thu)", "R2 (Fri)", "R3 (Sat)", "R4 (Sun)"];
+
+// Auto-detect the latest round that has any score entered
+const latestRound = () => {
+  let last = 0;
+  for (const p of Object.values(SCORES)) {
+    for (let i = 0; i < 4; i++) {
+      if (p.pick1[i] !== null || p.pick2[i] !== null) last = i;
+    }
+  }
+  return last;
+};
+
+const trophy = (place) => {
+  if (place === 1) return "🥇";
+  if (place === 2) return "🥈";
+  if (place === 3) return "🥉";
+  return null;
+};
+
+function useWindowWidth() {
+  const [width, setWidth] = useState(() => window.innerWidth);
+  useEffect(() => {
+    const handler = () => setWidth(window.innerWidth);
+    window.addEventListener("resize", handler);
+    return () => window.removeEventListener("resize", handler);
+  }, []);
+  return width;
+}
+
+const GREEN = "#006747";
+const DARK_GREEN = "#1C4932";
+const YELLOW = "#FCE300";
+
+const scoreColor = (n) => {
+  if (n === null) return "#999";
+  if (n < 0) return "#c0392b";
+  if (n === 0) return GREEN;
+  return "#1a1a1a";
+};
+
+const formatScore = (n) => {
+  if (n === null) return "—";
+  if (n === 0) return "E";
+  if (n > 0) return `+${n}`;
+  return `${n}`;
+};
+
+const getTotal = (name, day) => {
+  const p = SCORES[name];
+  return {
+    pick1Total: p.pick1[day],
+    pick2Total: p.pick2[day],
+  };
+};
+
+const getBestScore = (name, day) => {
+  const { pick1Total, pick2Total } = getTotal(name, day);
+  if (pick1Total === null && pick2Total === null) return null;
+  if (pick1Total === null) return pick2Total;
+  if (pick2Total === null) return pick1Total;
+  return Math.min(pick1Total, pick2Total);
+};
+
+export default function MastersLeaderboard() {
+  const [activeDay, setActiveDay] = useState(latestRound);
+  const width = useWindowWidth();
+  const isMobile = width < 640;
+
+  const sorted = [...PARTICIPANTS].sort((a, b) => {
+    const sa = getBestScore(a.name, activeDay);
+    const sb = getBestScore(b.name, activeDay);
+    if (sa === null && sb === null) return 0;
+    if (sa === null) return 1;
+    if (sb === null) return -1;
+    return sa - sb;
+  });
+
+  const dayLabel = DAYS[activeDay].split(" ")[0];
+
+  const pillBtn = (active, activeStyle, inactiveStyle) => ({
+    padding: "7px 18px",
+    fontSize: 13,
+    fontWeight: 500,
+    borderRadius: 30,
+    cursor: "pointer",
+    border: "none",
+    ...(active ? activeStyle : inactiveStyle),
+  });
+
+  return (
+    <div style={{ fontFamily: "var(--font-sans)" }}>
+
+      {/* Header */}
+      <div style={{
+        background: DARK_GREEN,
+        padding: "20px 24px 16px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: 10,
+      }}>
+        <img
+          src="/masters-logo.png"
+          alt="The Masters"
+          style={{ height: isMobile ? 64 : 80, width: "auto", display: "block" }}
+        />
+        <div style={{ textAlign: "center" }}>
+          <div style={{
+            fontFamily: "var(--font-heading)",
+            fontSize: isMobile ? 18 : 22,
+            fontWeight: 500,
+            color: YELLOW,
+            letterSpacing: 0.5,
+          }}>
+            Family Pool · 2026
+          </div>
+          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", marginTop: 3 }}>
+            $40 pot · best of two picks counts
+          </div>
+        </div>
+      </div>
+
+      {/* Round selector */}
+      <div style={{
+        padding: "14px 16px",
+        display: "flex",
+        gap: 6,
+        flexWrap: "wrap",
+        alignItems: "center",
+        borderBottom: "1px solid var(--color-border-tertiary)",
+        background: "#faf9f6",
+      }}>
+        {DAYS.map((d, i) => (
+          <button
+            key={i}
+            onClick={() => setActiveDay(i)}
+            style={pillBtn(
+              i === activeDay,
+              { background: DARK_GREEN, color: "#fff" },
+              { background: "transparent", color: "#595959", border: "1px solid #d0cbc0" }
+            )}
+          >
+            {d}
+          </button>
+        ))}
+      </div>
+
+      {/* Leaderboard */}
+      <div style={{ padding: "0 0 16px" }}>
+        {isMobile ? (
+          <div>
+            {sorted.map((p, idx) => {
+              const best = getBestScore(p.name, activeDay);
+              const { pick1Total, pick2Total } = getTotal(p.name, activeDay);
+              const isBest1 = pick1Total !== null && (pick2Total === null || pick1Total <= pick2Total);
+              const isBest2 = pick2Total !== null && (pick1Total === null || pick2Total <= pick1Total);
+
+              return (
+                <div
+                  key={p.name}
+                  style={{
+                    borderBottom: "1px solid var(--color-border-tertiary)",
+                    padding: "12px 16px",
+                    background: idx === 0 ? "#fdfcf8" : "#fff",
+                  }}
+                >
+                  <div style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
+                    <span style={{ fontSize: 14, color: "#999", width: 28, flexShrink: 0 }}>
+                      {trophy(idx + 1) || idx + 1}
+                    </span>
+                    <span style={{
+                      fontFamily: "var(--font-heading)",
+                      fontWeight: 600,
+                      fontSize: 16,
+                      flex: 1,
+                      color: "#1a1a1a",
+                    }}>
+                      {p.name}
+                    </span>
+                    <span style={{ fontWeight: 700, fontSize: 20, color: scoreColor(best) }}>
+                      {formatScore(best)}
+                    </span>
+                  </div>
+                  {[
+                    { pick: "pick1", label: p.pick1, total: pick1Total, isActive: isBest1 },
+                    { pick: "pick2", label: p.pick2, total: pick2Total, isActive: isBest2 },
+                  ].map(({ pick, label, total, isActive }) => (
+                    <div key={pick} style={{ display: "flex", alignItems: "center", paddingLeft: 28, marginBottom: 3 }}>
+                      <span style={{
+                        flex: 1, fontSize: 13,
+                        overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                        color: isActive ? "#1a1a1a" : "#888",
+                        fontWeight: isActive ? 500 : 400,
+                      }}>
+                        {label}
+                      </span>
+                      <span style={{ fontSize: 13, fontWeight: 600, color: scoreColor(total), marginLeft: 8 }}>
+                        {formatScore(total)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <table style={{ width: "100%", borderCollapse: "collapse", fontSize: 14 }}>
+            <thead>
+              <tr style={{ background: DARK_GREEN }}>
+                {["#", "Person", "Pick 1", dayLabel, "Pick 2", dayLabel, "Best"].map((h, i) => (
+                  <th key={i} style={{
+                    textAlign: i <= 1 || i === 2 || i === 4 ? "left" : "center",
+                    padding: i === 0 ? "11px 12px" : "11px 10px",
+                    fontWeight: 500,
+                    fontSize: 11,
+                    color: "rgba(255,255,255,0.75)",
+                    letterSpacing: 0.8,
+                    textTransform: "uppercase",
+                    width: i === 0 ? 36 : i === 3 || i === 5 ? 52 : i === 6 ? 64 : "auto",
+                    borderBottom: `2px solid ${YELLOW}`,
+                  }}>
+                    {h}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {sorted.map((p, idx) => {
+                const best = getBestScore(p.name, activeDay);
+                const { pick1Total, pick2Total } = getTotal(p.name, activeDay);
+                const isBest1 = pick1Total !== null && pick2Total !== null && pick1Total <= pick2Total;
+                const isBest2 = pick2Total !== null && pick1Total !== null && pick2Total <= pick1Total;
+                const onlyOne1 = pick1Total !== null && pick2Total === null;
+                const onlyOne2 = pick2Total !== null && pick1Total === null;
+
+                return (
+                  <tr key={p.name} style={{
+                    background: idx % 2 === 0 ? "#fff" : "#faf9f6",
+                    borderBottom: "1px solid var(--color-border-tertiary)",
+                  }}>
+                    <td style={{ padding: "11px 12px", fontSize: 13, color: "#aaa", width: 36 }}>
+                      {trophy(idx + 1) || idx + 1}
+                    </td>
+                    <td style={{ padding: "11px 10px", fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 15 }}>
+                      {p.name}
+                    </td>
+                    <td style={{
+                      padding: "11px 10px", fontSize: 13,
+                      color: (isBest1 || onlyOne1) ? "#1a1a1a" : "#888",
+                      fontWeight: (isBest1 || onlyOne1) ? 500 : 400,
+                    }}>
+                      {p.pick1}
+                    </td>
+                    <td style={{ textAlign: "center", padding: "11px 4px", width: 52, fontSize: 13, fontWeight: 600, color: scoreColor(pick1Total) }}>
+                      {formatScore(pick1Total)}
+                    </td>
+                    <td style={{
+                      padding: "11px 10px", fontSize: 13,
+                      color: (isBest2 || onlyOne2) ? "#1a1a1a" : "#888",
+                      fontWeight: (isBest2 || onlyOne2) ? 500 : 400,
+                    }}>
+                      {p.pick2}
+                    </td>
+                    <td style={{ textAlign: "center", padding: "11px 4px", width: 52, fontSize: 13, fontWeight: 600, color: scoreColor(pick2Total) }}>
+                      {formatScore(pick2Total)}
+                    </td>
+                    <td style={{
+                      textAlign: "center", padding: "11px 12px", width: 64,
+                      fontWeight: 700, fontSize: 16,
+                      color: scoreColor(best),
+                    }}>
+                      {formatScore(best)}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
+      </div>
+
+      {/* Footer */}
+      <div style={{ padding: "0 16px" }}>
+        <p style={{ fontSize: 12, color: "#bbb", margin: 0 }}>
+          Scores relative to par · best of two picks counts
+        </p>
+      </div>
+    </div>
+  );
+}
