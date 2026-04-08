@@ -133,15 +133,20 @@ export default function MastersLeaderboard() {
         <div style={{ textAlign: "center" }}>
           <div style={{
             fontFamily: "var(--font-heading)",
-            fontSize: isMobile ? 18 : 22,
-            fontWeight: 500,
+            fontSize: isMobile ? 20 : 26,
+            fontWeight: 600,
             color: YELLOW,
             letterSpacing: 0.5,
           }}>
             Family Pool · 2026
           </div>
-          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", marginTop: 3 }}>
-            $40 pot · best of two picks counts
+          <div style={{
+            width: 40, height: 1,
+            background: "rgba(252,227,0,0.35)",
+            margin: "8px auto 6px",
+          }} />
+          <div style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", letterSpacing: 0.4 }}>
+            $40 pot &nbsp;·&nbsp; best of two picks counts
           </div>
         </div>
       </div>
@@ -181,17 +186,25 @@ export default function MastersLeaderboard() {
               const isBest1 = pick1Total !== null && (pick2Total === null || pick1Total <= pick2Total);
               const isBest2 = pick2Total !== null && (pick1Total === null || pick2Total <= pick1Total);
 
+              const isLeader = idx === 0;
               return (
                 <div
                   key={p.name}
                   style={{
                     borderBottom: "1px solid var(--color-border-tertiary)",
+                    borderLeft: isLeader ? `3px solid ${YELLOW}` : "3px solid transparent",
                     padding: "12px 16px",
-                    background: idx === 0 ? "#fdfcf8" : "#fff",
+                    background: isLeader ? "#fffbe6" : "#fff",
                   }}
                 >
                   <div style={{ display: "flex", alignItems: "center", marginBottom: 8 }}>
-                    <span style={{ fontSize: 14, color: "#999", width: 28, flexShrink: 0 }}>
+                    <span style={{
+                      display: "inline-flex", alignItems: "center", justifyContent: "center",
+                      width: 24, height: 24, borderRadius: "50%", flexShrink: 0, marginRight: 4,
+                      background: isLeader ? YELLOW : idx === 1 ? "#e8e8e8" : idx === 2 ? "#e0d4c0" : "transparent",
+                      fontSize: 12, fontWeight: 700,
+                      color: isLeader ? DARK_GREEN : idx <= 2 ? "#555" : "#bbb",
+                    }}>
                       {trophy(idx + 1) || idx + 1}
                     </span>
                     <span style={{ flex: 1, display: "flex", alignItems: "center", gap: 6 }}>
@@ -263,13 +276,23 @@ export default function MastersLeaderboard() {
                 const onlyOne1 = pick1Total !== null && pick2Total === null;
                 const onlyOne2 = pick2Total !== null && pick1Total === null;
 
+                const isLeader = idx === 0;
                 return (
                   <tr key={p.name} style={{
-                    background: idx % 2 === 0 ? "#fff" : "#faf9f6",
+                    background: isLeader ? "#fffbe6" : idx % 2 === 0 ? "#fff" : "#faf9f6",
                     borderBottom: "1px solid var(--color-border-tertiary)",
+                    borderLeft: isLeader ? `3px solid ${YELLOW}` : "3px solid transparent",
                   }}>
-                    <td style={{ padding: "11px 12px", fontSize: 13, color: "#aaa", width: 36 }}>
-                      {trophy(idx + 1) || idx + 1}
+                    <td style={{ padding: "11px 12px", width: 36 }}>
+                      <span style={{
+                        display: "inline-flex", alignItems: "center", justifyContent: "center",
+                        width: 24, height: 24, borderRadius: "50%",
+                        background: isLeader ? YELLOW : idx === 1 ? "#e8e8e8" : idx === 2 ? "#e0d4c0" : "transparent",
+                        fontSize: 12, fontWeight: 700,
+                        color: isLeader ? DARK_GREEN : idx <= 2 ? "#555" : "#bbb",
+                      }}>
+                        {trophy(idx + 1) || idx + 1}
+                      </span>
                     </td>
                     <td style={{ padding: "11px 10px" }}>
                       <span style={{ fontFamily: "var(--font-heading)", fontWeight: 600, fontSize: 15 }}>{p.name}</span>
@@ -317,12 +340,13 @@ export default function MastersLeaderboard() {
         padding: "24px 16px 8px",
       }}>
         <div style={{
-          background: DARK_GREEN,
+          background: `linear-gradient(135deg, ${DARK_GREEN} 0%, #0f3d26 100%)`,
           border: `2px solid ${YELLOW}`,
-          borderRadius: 12,
-          padding: "16px 32px",
+          borderRadius: 14,
+          padding: "20px 40px",
           textAlign: "center",
-          minWidth: 220,
+          minWidth: 240,
+          boxShadow: `0 4px 24px rgba(0,0,0,0.18), 0 0 0 1px rgba(252,227,0,0.1) inset`,
         }}>
           <div style={{
             fontSize: 11,
