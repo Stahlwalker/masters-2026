@@ -17,14 +17,14 @@ const THEME = {
 };
 
 const PARTICIPANTS = [
-  { name: "Floyd", pick1: "Scottie Scheffler", pick2: "Akshay Bhatia",    winPct: "18.2%" },
-  { name: "Tori",  pick1: "Bryson DeChambeau", pick2: "Matt Fitzpatrick", winPct: "13.7%" },
-  { name: "Conor", pick1: "Jon Rahm",          pick2: "Tommy Fleetwood",  winPct: "13.2%" },
-  { name: "Jackie",pick1: "Rory McIlroy",      pick2: "Jordan Spieth",    winPct: "9.1%"  },
-  { name: "Cathy", pick1: "Xander Schauffele", pick2: "Collin Morikawa",  winPct: "9.1%"  },
-  { name: "Nate",  pick1: "Justin Rose",       pick2: "Cameron Young",    winPct: "7.8%"  },
-  { name: "Luke",  pick1: "Ludvig Åberg",      pick2: "Justin Thomas",    winPct: "6.7%"  },
-  { name: "Sandy", pick1: "J.J. Spaun",        pick2: "Robert MacIntyre", winPct: "4.6%"  },
+  { name: "Floyd", pick1: "Scottie Scheffler", pick1Rank: 1,  pick2: "Akshay Bhatia",    pick2Rank: 21, winPct: "18.2%", draftOrder: 1 },
+  { name: "Tori",  pick1: "Bryson DeChambeau", pick1Rank: 24, pick2: "Matt Fitzpatrick",  pick2Rank: 6,  winPct: "13.7%", draftOrder: 3 },
+  { name: "Conor", pick1: "Jon Rahm",          pick1Rank: 30, pick2: "Tommy Fleetwood",   pick2Rank: 4,  winPct: "13.2%", draftOrder: 8 },
+  { name: "Jackie",pick1: "Rory McIlroy",      pick1Rank: 2,  pick2: "Jordan Spieth",     pick2Rank: 61, winPct: "9.1%",  draftOrder: 2 },
+  { name: "Cathy", pick1: "Xander Schauffele", pick1Rank: 10, pick2: "Collin Morikawa",   pick2Rank: 7,  winPct: "9.1%",  draftOrder: 7 },
+  { name: "Nate",  pick1: "Justin Rose",       pick1Rank: 9,  pick2: "Cameron Young",     pick2Rank: 3,  winPct: "7.8%",  draftOrder: 6 },
+  { name: "Luke",  pick1: "Ludvig Åberg",      pick1Rank: 17, pick2: "Justin Thomas",     pick2Rank: 15, winPct: "6.7%",  draftOrder: 4 },
+  { name: "Sandy", pick1: "J.J. Spaun",        pick1Rank: 5,  pick2: "Robert MacIntyre",  pick2Rank: 8,  winPct: "4.6%",  draftOrder: 5 },
 ];
 
 const SCORES = {
