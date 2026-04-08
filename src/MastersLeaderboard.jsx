@@ -118,7 +118,7 @@ export default function MastersLeaderboard() {
 
       {/* Header */}
       <div style={{
-        background: `linear-gradient(160deg, #0f3d26 0%, ${DARK_GREEN} 40%, #1a5c3a 70%, #0d3321 100%)`,
+        background: `linear-gradient(160deg, #0a0f0d 0%, #111815 40%, #0d1a12 70%, #080c0a 100%)`,
         padding: "28px 24px 22px",
         display: "flex",
         flexDirection: "column",
@@ -132,14 +132,38 @@ export default function MastersLeaderboard() {
           position: "absolute", top: 0, left: "50%",
           transform: "translateX(-50%)",
           width: 320, height: 160,
-          background: "radial-gradient(ellipse, rgba(252,227,0,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(ellipse, rgba(252,227,0,0.06) 0%, transparent 70%)",
           pointerEvents: "none",
         }} />
-        <img
-          src="/masters-logo.png"
-          alt="The Masters"
-          style={{ height: isMobile ? 64 : 80, width: "auto", display: "block" }}
-        />
+        {/* All 4 major logos */}
+        <div style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: isMobile ? 16 : 32,
+          flexWrap: "wrap",
+        }}>
+          {[
+            { src: "/logos/masters-logo.png", alt: "The Masters", active: true },
+            { src: "/logos/PGA_Championship.png", alt: "PGA Championship", active: false },
+            { src: "/logos/US_Open_(Golf)_Logo.png", alt: "U.S. Open", active: false },
+            { src: "/logos/open-logo.png", alt: "The Open", active: false },
+          ].map(({ src, alt, active }) => (
+            <img
+              key={alt}
+              src={src}
+              alt={alt}
+              style={{
+                height: active ? (isMobile ? 64 : 80) : (isMobile ? 36 : 46),
+                width: "auto",
+                display: "block",
+                opacity: active ? 1 : 0.55,
+                filter: active ? "none" : "brightness(0) invert(1) opacity(0.55)",
+                transition: "opacity 0.2s ease",
+              }}
+            />
+          ))}
+        </div>
         <div style={{ textAlign: "center" }}>
           <div style={{
             fontFamily: "var(--font-heading)",
@@ -448,18 +472,49 @@ export default function MastersLeaderboard() {
         bottom: 0,
         left: 0,
         right: 0,
-        background: `linear-gradient(90deg, #f5d800 0%, ${YELLOW} 50%, #f5d800 100%)`,
+        background: `linear-gradient(90deg, #0a0f0d 0%, #111815 50%, #0a0f0d 100%)`,
         padding: "10px 16px",
-        textAlign: "center",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
         zIndex: 100,
+        flexWrap: "wrap",
+        gap: 8,
       }}>
-        <span style={{ fontSize: 12, fontWeight: 600, color: DARK_GREEN }}>
+        <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+          <span style={{ fontSize: 11, fontWeight: 700, color: "rgba(255,255,255,0.4)", letterSpacing: 0.5 }}>
+            2026 MAJORS
+          </span>
+          {[
+            { label: "PGA Championship", date: "May" },
+            { label: "U.S. Open", date: "Jun" },
+            { label: "The Open", date: "Jul" },
+          ].map(({ label, date }) => (
+            <span
+              key={label}
+              title="Coming soon"
+              style={{
+                fontSize: 12,
+                fontWeight: 600,
+                color: "rgba(255,255,255,0.5)",
+                cursor: "not-allowed",
+                display: "flex",
+                alignItems: "center",
+                gap: 4,
+              }}
+            >
+              {label}
+              <span style={{ fontSize: 10, fontWeight: 400, opacity: 0.7 }}>({date})</span>
+            </span>
+          ))}
+        </div>
+        <span style={{ fontSize: 12, fontWeight: 600, color: "rgba(255,255,255,0.5)" }}>
           Made by{" "}
           <a
             href="https://lukestahl.io/"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: DARK_GREEN, textDecoration: "underline" }}
+            style={{ color: YELLOW, textDecoration: "underline" }}
           >
             Luke Stahl
           </a>
