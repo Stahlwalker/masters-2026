@@ -37,8 +37,8 @@ const formatScore = (n) => {
 const scoreColor = (n, theme) => {
   if (n === null) return "#999";
   if (n < 0) return "#c0392b";
-  if (n === 0) return theme.accent;
-  return "#1a1a1a";
+  if (n === 0) return "#888";
+  return "#2563eb";
 };
 
 const latestRound = (scores) => {
@@ -269,7 +269,12 @@ export default function MajorLeaderboard({ theme, participants, scores, comingSo
                           <span style={{ fontSize: 11, color: "#aaa", fontWeight: 400 }}>{p.winPct}</span>
                           {p.draftOrder && <span style={{ fontSize: 10, color: "#006747", fontWeight: 700, background: "#e6f3ec", borderRadius: 4, padding: "1px 5px" }}>· #{p.draftOrder} pick</span>}
                         </span>
-                        <span style={{ fontWeight: 700, fontSize: 20, color: scoreColor(best, theme) }}>{formatScore(best)}</span>
+                        <span style={{
+                          fontWeight: 700, fontSize: 16, color: scoreColor(best, theme),
+                          border: `1.5px solid ${scoreColor(best, theme)}`,
+                          borderRadius: 8, padding: "3px 10px",
+                          minWidth: 44, textAlign: "center",
+                        }}>{formatScore(best)}</span>
                       </div>
                       {[
                         { pick: "pick1", label: p.pick1, rank: p.pick1Rank, total: pick1Total, isActive: isBest1 },
@@ -302,6 +307,7 @@ export default function MajorLeaderboard({ theme, participants, scores, comingSo
                         letterSpacing: 0.8, textTransform: "uppercase",
                         width: i === 0 ? 36 : i === 3 || i === 5 ? 52 : i === 6 ? 64 : "auto",
                         borderBottom: `2px solid ${theme.accent}`,
+                        borderLeft: i === 6 ? "2px solid rgba(255,255,255,0.2)" : "none",
                       }}>{h}</th>
                     ))}
                   </tr>
@@ -345,7 +351,7 @@ export default function MajorLeaderboard({ theme, participants, scores, comingSo
                           {p.pick2}{p.pick2Rank && <span style={{ fontSize: 11, color: "#006747", fontWeight: 600, marginLeft: 5 }}>#{p.pick2Rank}</span>}
                         </td>
                         <td style={{ textAlign: "center", padding: "11px 4px", width: 52, fontSize: 13, fontWeight: 600, color: scoreColor(pick2Total, theme) }}>{formatScore(pick2Total)}</td>
-                        <td style={{ textAlign: "center", padding: "11px 12px", width: 64, fontWeight: 700, fontSize: 16, color: scoreColor(best, theme) }}>{formatScore(best)}</td>
+                        <td style={{ textAlign: "center", padding: "11px 12px", width: 64, fontWeight: 700, fontSize: 16, color: scoreColor(best, theme), borderLeft: "2px solid rgba(0,0,0,0.08)" }}>{formatScore(best)}</td>
                       </tr>
                     );
                   })}

@@ -28,14 +28,14 @@ const PARTICIPANTS = [
 ];
 
 const SCORES = {
-  Floyd:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Tori:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Conor:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Jackie: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Cathy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Nate:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Luke:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Sandy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Floyd:  { pick1: [-2, null, null, null], pick2: [+1, null, null, null] },  // Scheffler -2, Bhatia +1
+  Tori:   { pick1: [+4, null, null, null], pick2: [+2, null, null, null] },  // DeChambeau +4, Fitzpatrick +2
+  Conor:  { pick1: [+6, null, null, null], pick2: [-1, null, null, null] },  // Rahm +6, Fleetwood -1
+  Jackie: { pick1: [-5, null, null, null], pick2: [0,  null, null, null] },  // McIlroy -5, Spieth E
+  Cathy:  { pick1: [-2, null, null, null], pick2: [+2, null, null, null] },  // Schauffele -2, Morikawa +2
+  Nate:   { pick1: [-2, null, null, null], pick2: [+1, null, null, null] },  // Rose -2, Young +1
+  Luke:   { pick1: [+2, null, null, null], pick2: [0,  null, null, null] },  // Åberg +2, Thomas E
+  Sandy:  { pick1: [+2, null, null, null], pick2: [+8, null, null, null] },  // Spaun +2, MacIntyre +8
 };
 
 export default function Masters() {
