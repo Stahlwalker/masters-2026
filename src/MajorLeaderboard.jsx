@@ -277,17 +277,18 @@ export default function MajorLeaderboard({ theme, participants, scores, comingSo
                         }}>{formatScore(best)}</span>
                       </div>
                       {[
-                        { pick: "pick1", label: p.pick1, rank: p.pick1Rank, total: pick1Total, isActive: isBest1 },
-                        { pick: "pick2", label: p.pick2, rank: p.pick2Rank, total: pick2Total, isActive: isBest2 },
-                      ].map(({ pick, label, rank, total, isActive }) => (
+                        { pick: "pick1", label: p.pick1, rank: p.pick1Rank, total: pick1Total, isActive: isBest1, cut: scores[p.name].pick1Cut },
+                        { pick: "pick2", label: p.pick2, rank: p.pick2Rank, total: pick2Total, isActive: isBest2, cut: scores[p.name].pick2Cut },
+                      ].map(({ pick, label, rank, total, isActive, cut }) => (
                         <div key={pick} style={{ display: "flex", alignItems: "center", paddingLeft: 28, marginBottom: 3 }}>
                           <span style={{
                             flex: 1, fontSize: 13, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
-                            color: isActive ? "#1a1a1a" : "#888", fontWeight: isActive ? 500 : 400,
+                            color: cut ? "#aaa" : "#1a1a1a", fontWeight: 400,
                           }}>
                             {label}{rank && <span style={{ fontSize: 11, color: "#006747", fontWeight: 600, marginLeft: 4 }}>#{rank}</span>}
+                            {cut && <span style={{ fontSize: 10, fontWeight: 700, color: "#fff", background: "#b0b0b0", borderRadius: 4, padding: "1px 5px", marginLeft: 5 }}>CUT</span>}
                           </span>
-                          <span style={{ fontSize: 13, fontWeight: 600, color: scoreColor(total, theme), marginLeft: 8 }}>{formatScore(total)}</span>
+                          <span style={{ fontSize: 13, fontWeight: 600, color: cut ? "#aaa" : scoreColor(total, theme), marginLeft: 8 }}>{formatScore(total)}</span>
                         </div>
                       ))}
                     </div>
@@ -343,14 +344,16 @@ export default function MajorLeaderboard({ theme, participants, scores, comingSo
                           <span style={{ fontSize: 11, color: "#aaa", fontWeight: 400, marginLeft: 6 }}>{p.winPct}</span>
                           {p.draftOrder && <span style={{ fontSize: 10, color: "#006747", fontWeight: 700, background: "#e6f3ec", borderRadius: 4, padding: "1px 5px", marginLeft: 4 }}>· #{p.draftOrder} pick</span>}
                         </td>
-                        <td style={{ padding: "11px 10px", fontSize: 13, color: (isBest1||onlyOne1) ? "#1a1a1a":"#888", fontWeight: (isBest1||onlyOne1) ? 500:400 }}>
+                        <td style={{ padding: "11px 10px", fontSize: 13, color: scores[p.name].pick1Cut ? "#aaa" : "#1a1a1a", fontWeight: 400 }}>
                           {p.pick1}{p.pick1Rank && <span style={{ fontSize: 11, color: "#006747", fontWeight: 600, marginLeft: 5 }}>#{p.pick1Rank}</span>}
+                          {scores[p.name].pick1Cut && <span style={{ fontSize: 10, fontWeight: 700, color: "#fff", background: "#b0b0b0", borderRadius: 4, padding: "1px 5px", marginLeft: 5 }}>CUT</span>}
                         </td>
-                        <td style={{ textAlign: "center", padding: "11px 4px", width: 52, fontSize: 13, fontWeight: 600, color: scoreColor(pick1Total, theme) }}>{formatScore(pick1Total)}</td>
-                        <td style={{ padding: "11px 10px", fontSize: 13, color: (isBest2||onlyOne2) ? "#1a1a1a":"#888", fontWeight: (isBest2||onlyOne2) ? 500:400 }}>
+                        <td style={{ textAlign: "center", padding: "11px 4px", width: 52, fontSize: 13, fontWeight: 600, color: scores[p.name].pick1Cut ? "#aaa" : scoreColor(pick1Total, theme) }}>{formatScore(pick1Total)}</td>
+                        <td style={{ padding: "11px 10px", fontSize: 13, color: scores[p.name].pick2Cut ? "#aaa" : "#1a1a1a", fontWeight: 400 }}>
                           {p.pick2}{p.pick2Rank && <span style={{ fontSize: 11, color: "#006747", fontWeight: 600, marginLeft: 5 }}>#{p.pick2Rank}</span>}
+                          {scores[p.name].pick2Cut && <span style={{ fontSize: 10, fontWeight: 700, color: "#fff", background: "#b0b0b0", borderRadius: 4, padding: "1px 5px", marginLeft: 5 }}>CUT</span>}
                         </td>
-                        <td style={{ textAlign: "center", padding: "11px 4px", width: 52, fontSize: 13, fontWeight: 600, color: scoreColor(pick2Total, theme) }}>{formatScore(pick2Total)}</td>
+                        <td style={{ textAlign: "center", padding: "11px 4px", width: 52, fontSize: 13, fontWeight: 600, color: scores[p.name].pick2Cut ? "#aaa" : scoreColor(pick2Total, theme) }}>{formatScore(pick2Total)}</td>
                         <td style={{ textAlign: "center", padding: "11px 12px", width: 64, fontWeight: 700, fontSize: 16, color: scoreColor(best, theme), borderLeft: "2px solid rgba(0,0,0,0.08)" }}>{formatScore(best)}</td>
                       </tr>
                     );

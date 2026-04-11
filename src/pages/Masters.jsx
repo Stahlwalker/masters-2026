@@ -28,14 +28,14 @@ const PARTICIPANTS = [
 ];
 
 const SCORES = {
-  Floyd:  { pick1: [-2, null, null, null], pick2: [+1, null, null, null] },  // Scheffler -2, Bhatia +1
-  Tori:   { pick1: [+4, null, null, null], pick2: [+2, null, null, null] },  // DeChambeau +4, Fitzpatrick +2
-  Conor:  { pick1: [+6, null, null, null], pick2: [-1, null, null, null] },  // Rahm +6, Fleetwood -1
-  Jackie: { pick1: [-5, null, null, null], pick2: [0,  null, null, null] },  // McIlroy -5, Spieth E
-  Cathy:  { pick1: [-2, null, null, null], pick2: [+2, null, null, null] },  // Schauffele -2, Morikawa +2
-  Nate:   { pick1: [-2, null, null, null], pick2: [+1, null, null, null] },  // Rose -2, Young +1
-  Luke:   { pick1: [+2, null, null, null], pick2: [0,  null, null, null] },  // Åberg +2, Thomas E
-  Sandy:  { pick1: [+2, null, null, null], pick2: [+8, null, null, null] },  // Spaun +2, MacIntyre +8
+  Floyd:  { pick1: [-2,   0, null, null],                    pick2: [+1, +6, null, null], pick2Cut: true  },  // Scheffler -2/E, Bhatia +1/+6 (CUT)
+  Tori:   { pick1: [+4,  +6, null, null], pick1Cut: true,    pick2: [+2, -1, null, null]                  },  // DeChambeau +4/+6 (CUT), Fitzpatrick +2/-1
+  Conor:  { pick1: [+6,  +4, null, null],                    pick2: [-1, -5, null, null]                  },  // Rahm +6/+4, Fleetwood -1/-5
+  Jackie: { pick1: [-5, -12, null, null],                    pick2: [0,  +1, null, null]                  },  // McIlroy -5/-12, Spieth E/+1
+  Cathy:  { pick1: [-2,  -2, null, null],                    pick2: [+2, -1, null, null]                  },  // Schauffele -2/-2, Morikawa +2/-1
+  Nate:   { pick1: [-2,  -5, null, null],                    pick2: [+1, -4, null, null]                  },  // Rose -2/-5, Young +1/-4
+  Luke:   { pick1: [+2,   0, null, null],                    pick2: [0,  +2, null, null]                  },  // Åberg +2/E, Thomas E/+2
+  Sandy:  { pick1: [+2,  +5, null, null], pick1Cut: true,    pick2: [+8, +7, null, null], pick2Cut: true  },  // Spaun +2/+5 (CUT), MacIntyre +8/+7 (CUT)
 };
 
 export default function Masters() {
