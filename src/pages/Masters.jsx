@@ -28,13 +28,13 @@ const PARTICIPANTS = [
 ];
 
 const SCORES = {
-  Floyd:  { pick1: [-2,   0, null, null],                    pick2: [+1, +6, null, null], pick2Cut: true  },  // Scheffler -2/E, Bhatia +1/+6 (CUT)
-  Tori:   { pick1: [+4,  +6, null, null], pick1Cut: true,    pick2: [+2, -1, null, null]                  },  // DeChambeau +4/+6 (CUT), Fitzpatrick +2/-1
-  Conor:  { pick1: [+6,  +4, null, null],                    pick2: [-1, -5, null, null]                  },  // Rahm +6/+4, Fleetwood -1/-5
-  Jackie: { pick1: [-5, -12, null, null],                    pick2: [0,  +1, null, null]                  },  // McIlroy -5/-12, Spieth E/+1
-  Cathy:  { pick1: [-2,  -2, null, null],                    pick2: [+2, -1, null, null]                  },  // Schauffele -2/-2, Morikawa +2/-1
-  Nate:   { pick1: [-2,  -5, null, null],                    pick2: [+1, -4, null, null]                  },  // Rose -2/-5, Young +1/-4
-  Luke:   { pick1: [+2,   0, null, null],                    pick2: [0,  +2, null, null]                  },  // Åberg +2/E, Thomas E/+2
+  Floyd:  { pick1: [-2,   0,  -7, null],                    pick2: [+1, +6, null, null], pick2Cut: true  },  // Scheffler -2/E/-7, Bhatia +1/+6 (CUT)
+  Tori:   { pick1: [+4,  +6, null, null], pick1Cut: true,    pick2: [+2, -1,  -3, null]                  },  // DeChambeau +4/+6 (CUT), Fitzpatrick +2/-1/-3
+  Conor:  { pick1: [+6,  +4,  +5, null],                    pick2: [-1, -5,  -4, null]                  },  // Rahm +6/+4/+5, Fleetwood -1/-5/-4
+  Jackie: { pick1: [-5, -12, -11, null],                    pick2: [0,  +1,  -1, null]                  },  // McIlroy -5/-12/-11, Spieth E/+1/-1
+  Cathy:  { pick1: [-2,  -2,  -4, null],                    pick2: [+2, -1,  -5, null]                  },  // Schauffele -2/-2/-4, Morikawa +2/-1/-5
+  Nate:   { pick1: [-2,  -5,  -8, null],                    pick2: [+1, -4, -11, null]                  },  // Rose -2/-5/-8, Young +1/-4/-11
+  Luke:   { pick1: [+2,   0,  -3, null],                    pick2: [0,  +2,  +1, null]                  },  // Åberg +2/E/-3, Thomas E/+2/+1
   Sandy:  { pick1: [+2,  +5, null, null], pick1Cut: true,    pick2: [+8, +7, null, null], pick2Cut: true  },  // Spaun +2/+5 (CUT), MacIntyre +8/+7 (CUT)
 };
 
