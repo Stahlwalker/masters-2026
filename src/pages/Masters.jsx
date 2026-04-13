@@ -28,16 +28,16 @@ const PARTICIPANTS = [
 ];
 
 const SCORES = {
-  Floyd:  { pick1: [-2,   0,  -7, null],                    pick2: [+1, +6, null, null], pick2Cut: true  },  // Scheffler -2/E/-7, Bhatia +1/+6 (CUT)
-  Tori:   { pick1: [+4,  +6, null, null], pick1Cut: true,    pick2: [+2, -1,  -3, null]                  },  // DeChambeau +4/+6 (CUT), Fitzpatrick +2/-1/-3
-  Conor:  { pick1: [+6,  +4,  +5, null],                    pick2: [-1, -5,  -4, null]                  },  // Rahm +6/+4/+5, Fleetwood -1/-5/-4
-  Jackie: { pick1: [-5, -12, -11, null],                    pick2: [0,  +1,  -1, null]                  },  // McIlroy -5/-12/-11, Spieth E/+1/-1
-  Cathy:  { pick1: [-2,  -2,  -4, null],                    pick2: [+2, -1,  -5, null]                  },  // Schauffele -2/-2/-4, Morikawa +2/-1/-5
-  Nate:   { pick1: [-2,  -5,  -8, null],                    pick2: [+1, -4, -11, null]                  },  // Rose -2/-5/-8, Young +1/-4/-11
-  Luke:   { pick1: [+2,   0,  -3, null],                    pick2: [0,  +2,  +1, null]                  },  // Åberg +2/E/-3, Thomas E/+2/+1
-  Sandy:  { pick1: [+2,  +5, null, null], pick1Cut: true,    pick2: [+8, +7, null, null], pick2Cut: true  },  // Spaun +2/+5 (CUT), MacIntyre +8/+7 (CUT)
+  Floyd:  { pick1: [-2,   0,  -7, -11],                    pick2: [+1, +6, null, null], pick2Cut: true  },  // Scheffler 70/74/65/68=-11, Bhatia CUT
+  Tori:   { pick1: [+4,  +6, null, null], pick1Cut: true,    pick2: [+2, -1,  -3,  -4]                  },  // DeChambeau CUT, Fitzpatrick 74/69/70/71=-4
+  Conor:  { pick1: [+6,  +4,  +5,  +1],                    pick2: [-1, -5,  -4,   0]                  },  // Rahm 78/70/73/68=+1, Fleetwood 71/68/73/76=E
+  Jackie: { pick1: [-5, -12, -11, -12],                    pick2: [0,  +1,  -1,  -5]                  },  // McIlroy 67/65/73/71=-12 (WINNER), Spieth 72/73/70/68=-5
+  Cathy:  { pick1: [-2,  -2,  -4,  -8],                    pick2: [+2, -1,  -5,  -9]                  },  // Schauffele 70/72/70/68=-8, Morikawa 74/69/68/68=-9
+  Nate:   { pick1: [-2,  -5,  -8, -10],                    pick2: [+1, -4, -11, -10]                  },  // Rose 70/69/69/70=-10, Young 73/67/65/73=-10
+  Luke:   { pick1: [+2,   0,  -3,  -3],                    pick2: [0,  +2,  +1,  +2]                  },  // Åberg 74/70/69/72=-3, Thomas 72/74/71/73=+2
+  Sandy:  { pick1: [+2,  +5, null, null], pick1Cut: true,    pick2: [+8, +7, null, null], pick2Cut: true  },  // Spaun CUT, MacIntyre CUT
 };
 
 export default function Masters() {
-  return <MajorLeaderboard theme={THEME} participants={PARTICIPANTS} scores={SCORES} />;
+  return <MajorLeaderboard theme={THEME} participants={PARTICIPANTS} scores={SCORES} final />;
 }

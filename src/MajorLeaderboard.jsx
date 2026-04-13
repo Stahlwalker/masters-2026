@@ -64,7 +64,7 @@ const getBestScore = (scores, name, day) => {
   return Math.min(pick1Total, pick2Total);
 };
 
-export default function MajorLeaderboard({ theme, participants, scores, comingSoon }) {
+export default function MajorLeaderboard({ theme, participants, scores, comingSoon, final }) {
   const [activeDay, setActiveDay] = useState(() => latestRound(scores));
   const width = useWindowWidth();
   const isMobile = width < 640;
@@ -375,7 +375,7 @@ export default function MajorLeaderboard({ theme, participants, scores, comingSo
                 fontSize: 10, fontWeight: 700, letterSpacing: 1.8, textTransform: "uppercase",
                 color: theme.accent, marginBottom: 8, textShadow: `0 0 12px ${theme.accentGlow}`,
               }}>
-                ✦ Projected Winner ✦
+                {final ? "✦ Winner ✦" : "✦ Projected Winner ✦"}
               </div>
               <div style={{
                 fontFamily: "var(--font-heading)", fontSize: 30, fontWeight: 700,
