@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const DAYS = ["R1 (Thu)", "R2 (Fri)", "R3 (Sat)", "R4 (Sun)"];
+const DAYS = ["R1 (Thu)", "R2 (Fri)", "R3 (Sat)", "Final"];
 
 const MAJORS = [
   { label: "Masters",         path: "/",       logo: "/logos/masters-logo.png"        },
