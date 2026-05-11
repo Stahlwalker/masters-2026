@@ -16,13 +16,30 @@ const THEME = {
   watchLiveUrl: null,
 };
 
-const PLACEHOLDER = [
-  { name: "TBD", pick1: "—", pick2: "—", winPct: "" },
+const PARTICIPANTS = [
+  { name: "Tori",   pick1: "—", pick2: "—", winPct: "", draftOrder: 1 },
+  { name: "Nate",   pick1: "—", pick2: "—", winPct: "", draftOrder: 2 },
+  { name: "Floyd",  pick1: "—", pick2: "—", winPct: "", draftOrder: 3 },
+  { name: "Sandy",  pick1: "—", pick2: "—", winPct: "", draftOrder: 4 },
+  { name: "Conor",  pick1: "—", pick2: "—", winPct: "", draftOrder: 5 },
+  { name: "Luke",   pick1: "—", pick2: "—", winPct: "", draftOrder: 6 },
+  { name: "Jackie", pick1: "—", pick2: "—", winPct: "", draftOrder: 7 },
+  { name: "Cathy",  pick1: "—", pick2: "—", winPct: "", draftOrder: 8 },
+  { name: "Mandy",  pick1: "—", pick2: "—", winPct: "", draftOrder: 9 },
 ];
-const PLACEHOLDER_SCORES = {
-  TBD: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+
+const SCORES = {
+  Tori:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Nate:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Floyd:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Sandy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Conor:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Luke:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Jackie: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Cathy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Mandy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
 };
 
 export default function PGA() {
-  return <MajorLeaderboard theme={THEME} participants={PLACEHOLDER} scores={PLACEHOLDER_SCORES} comingSoon />;
+  return <MajorLeaderboard theme={THEME} participants={PARTICIPANTS} scores={SCORES} />;
 }
