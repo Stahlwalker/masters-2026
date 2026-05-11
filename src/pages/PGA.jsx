@@ -12,8 +12,8 @@ const THEME = {
   projectedWinnerBg: "linear-gradient(150deg, #0a1e3d 0%, #00274C 45%, #050f1f 100%)",
   badge1Bg: "linear-gradient(135deg, #d4b96a 0%, #9e7c30 100%)",
   badge1Text: "#fff",
-  leaderboardUrl: null,
-  watchLiveUrl: null,
+  leaderboardUrl: "https://www.pgachampionship.com/leaderboard",
+  watchLiveUrl: "https://www.pgachampionship.com/how-to-watch",
 };
 
 const PARTICIPANTS = [
