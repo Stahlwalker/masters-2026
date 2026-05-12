@@ -24,8 +24,8 @@ const PARTICIPANTS = [
   { name: "Conor",  pick1: "Jon Rahm",          pick2: "—", winPct: "", draftOrder: 5 },
   { name: "Luke",   pick1: "Bryson DeChambeau", pick2: "—", winPct: "", draftOrder: 6 },
   { name: "Jackie", pick1: "Collin Morikawa",   pick2: "—", winPct: "", draftOrder: 7 },
-  { name: "Cathy",  pick1: "—", pick2: "—", winPct: "", draftOrder: 8 },
-  { name: "Mandy",  pick1: "—", pick2: "—", winPct: "", draftOrder: 9 },
+  { name: "Cathy",  pick1: "Ludvig Aberg",       pick2: "—", winPct: "", draftOrder: 8 },
+  { name: "Mandy",  pick1: "Tommy Fleetwood",    pick2: "Chris Gotterup", winPct: "", draftOrder: 9 },
 ];
 
 const SCORES = {
