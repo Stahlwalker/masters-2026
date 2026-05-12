@@ -20,11 +20,11 @@ const PARTICIPANTS = [
   { name: "Tori",   pick1: "Scottie Scheffler", pick2: "—", winPct: "", draftOrder: 1 },
   { name: "Nate",   pick1: "Rory McIlroy",      pick2: "—", winPct: "", draftOrder: 2 },
   { name: "Floyd",  pick1: "Cameron Young",     pick2: "—", winPct: "", draftOrder: 3 },
-  { name: "Sandy",  pick1: "Matt Fitzpatrick",  pick2: "—", winPct: "", draftOrder: 4 },
-  { name: "Conor",  pick1: "Jon Rahm",          pick2: "—", winPct: "", draftOrder: 5 },
-  { name: "Luke",   pick1: "Bryson DeChambeau", pick2: "—", winPct: "", draftOrder: 6 },
-  { name: "Jackie", pick1: "Collin Morikawa",   pick2: "—", winPct: "", draftOrder: 7 },
-  { name: "Cathy",  pick1: "Ludvig Aberg",       pick2: "—", winPct: "", draftOrder: 8 },
+  { name: "Sandy",  pick1: "Matt Fitzpatrick",  pick2: "Xander Schauffele", winPct: "", draftOrder: 4 },
+  { name: "Conor",  pick1: "Jon Rahm",          pick2: "Jordan Spieth",     winPct: "", draftOrder: 5 },
+  { name: "Luke",   pick1: "Bryson DeChambeau", pick2: "Shane Lowry",       winPct: "", draftOrder: 6 },
+  { name: "Jackie", pick1: "Collin Morikawa",   pick2: "Justin Thomas",     winPct: "", draftOrder: 7 },
+  { name: "Cathy",  pick1: "Ludvig Aberg",      pick2: "Justin Rose",       winPct: "", draftOrder: 8 },
   { name: "Mandy",  pick1: "Tommy Fleetwood",    pick2: "Chris Gotterup", winPct: "", draftOrder: 9 },
 ];
 
