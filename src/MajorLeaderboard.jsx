@@ -170,7 +170,7 @@ export default function MajorLeaderboard({ theme, participants, scores, comingSo
             margin: "8px auto 6px",
           }} />
           <div style={{ fontSize: 12, color: "rgba(255,255,255,0.55)", letterSpacing: 0.4 }}>
-            <span className="gold-shimmer">$40</span> pot &nbsp;·&nbsp; best of two picks counts
+            <span className="gold-shimmer">{theme.potAmount || "$40"}</span> pot &nbsp;·&nbsp; best of two picks counts
           </div>
         </div>
       </div>
