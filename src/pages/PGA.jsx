@@ -30,15 +30,15 @@ const PARTICIPANTS = [
 ];
 
 const SCORES = {
-  Tori:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Nate:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Floyd:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Sandy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Conor:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Luke:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Jackie: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Cathy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Mandy:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Tori:   { pick1: [-3,   null, null, null], pick2: [0,   null, null, null] },  // Scheffler 67=-3, Fowler 70=E
+  Nate:   { pick1: [+4,   null, null, null], pick2: [+3,  null, null, null] },  // McIlroy 74=+4, Straka 73=+3
+  Floyd:  { pick1: [+1,   null, null, null], pick2: [+1,  null, null, null] },  // Young 71=+1, Bhatia 71=+1
+  Sandy:  { pick1: [0,    null, null, null], pick2: [-2,  null, null, null] },  // Fitzpatrick 70=E, Schauffele 68=-2
+  Conor:  { pick1: [-1,   null, null, null], pick2: [-1,  null, null, null] },  // Rahm 69=-1, Spieth 69=-1
+  Luke:   { pick1: [+6,   null, null, null], pick2: [-2,  null, null, null] },  // DeChambeau 76=+6, Lowry 68=-2
+  Jackie: { pick1: [-1,   null, null, null], pick2: [-1,  null, null, null] },  // Morikawa 69=-1, Thomas 69=-1
+  Cathy:  { pick1: [+2,   null, null, null], pick2: [0,   null, null, null] },  // Åberg 72=+2, Rose 70=E
+  Mandy:  { pick1: [+2,   null, null, null], pick2: [+2,  null, null, null] },  // Fleetwood 72=+2, Gotterup 72=+2
 };
 
 export default function PGA() {
