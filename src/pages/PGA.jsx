@@ -30,17 +30,17 @@ const PARTICIPANTS = [
 ];
 
 const SCORES = {
-  Tori:   { pick1: [-3,  -2, -1,   null],                   pick2: [0,  +1, -1,   null]                  },  // Scheffler 67/71/71=-1, Fowler 70/71/68=-1
-  Nate:   { pick1: [+4,  +1, -3,   null],                   pick2: [+3, +6, null, null], pick2Cut: true  },  // McIlroy 74/67/66=-3, Straka CUT
-  Floyd:  { pick1: [+1,  -2,  0,   null],                   pick2: [+1, +5, null, null], pick2Cut: true  },  // Young 71/67/72=E, Bhatia CUT
-  Sandy:  { pick1: [0,   +2, +3,   null],                   pick2: [-2, +1, -3,   null]                  },  // Fitzpatrick 70/72/71=+3, Schauffele 68/73/66=-3
-  Conor:  { pick1: [-1,  -1, -4,   null],                   pick2: [-1, +1, +1,   null]                  },  // Rahm 69/70/67=-4, Spieth 69/72/70=+1
-  Luke:   { pick1: [+6,  +7, null, null], pick1Cut: true,   pick2: [-2, +4, +4,   null]                  },  // DeChambeau CUT, Lowry 68/76/70=+4
-  Jackie: { pick1: [-1,  +1, +5,   null],                   pick2: [-1, -2,  0,   null]                  },  // Morikawa 69/72/74=+5, Thomas 69/69/72=E
-  Cathy:  { pick1: [+2,  -2, -4,   null],                   pick2: [0,  +3, -2,   null]                  },  // Åberg 72/66/68=-4, Rose 70/73/65=-2
-  Mandy:  { pick1: [+2,  +5, null, null], pick1Cut: true,   pick2: [+2, -3, -2,   null]                  },  // Fleetwood CUT, Gotterup 72/65/71=-2
+  Tori:   { pick1: [-3,  -2, -1,   -2],                     pick2: [0,  +1, -1,   +4]                    },  // Scheffler 67/71/71/69=-2, Fowler 70/71/68/75=+4
+  Nate:   { pick1: [+4,  +1, -3,   -4],                     pick2: [+3, +6, null, null], pick2Cut: true  },  // McIlroy 74/67/66/69=-4, Straka CUT
+  Floyd:  { pick1: [+1,  -2,  0,    0],                     pick2: [+1, +5, null, null], pick2Cut: true  },  // Young 71/67/72/70=E, Bhatia CUT
+  Sandy:  { pick1: [0,   +2, +3,   -2],                     pick2: [-2, +1, -3,   -4]                    },  // Fitzpatrick 70/72/71/65=-2, Schauffele 68/73/66/69=-4
+  Conor:  { pick1: [-1,  -1, -4,   -6],                     pick2: [-1, +1, +1,   -1]                    },  // Rahm 69/70/67/68=-6, Spieth 69/72/70/68=-1
+  Luke:   { pick1: [+6,  +7, null, null], pick1Cut: true,   pick2: [-2, +4, +4,   +2]                    },  // DeChambeau CUT, Lowry 68/76/70/68=+2
+  Jackie: { pick1: [-1,  +1, +5,   +3],                     pick2: [-1, -2,  0,   -5]                    },  // Morikawa 69/72/74/68=+3, Thomas 69/69/72/65=-5
+  Cathy:  { pick1: [+2,  -2, -4,   -5],                     pick2: [0,  +3, -2,   -3]                    },  // Åberg 72/66/68/69=-5, Rose 70/73/65/69=-3
+  Mandy:  { pick1: [+2,  +5, null, null], pick1Cut: true,   pick2: [+2, -3, -2,   -3]                    },  // Fleetwood CUT, Gotterup 72/65/71/69=-3
 };
 
 export default function PGA() {
-  return <MajorLeaderboard theme={THEME} participants={PARTICIPANTS} scores={SCORES} />;
+  return <MajorLeaderboard theme={THEME} participants={PARTICIPANTS} scores={SCORES} final />;
 }
