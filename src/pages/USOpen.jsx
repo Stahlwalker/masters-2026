@@ -22,7 +22,7 @@ const PARTICIPANTS = [
   { name: "Nate",    pick1: "Rory McIlroy", pick2: "—", winPct: "", draftOrder: 2  },
   { name: "Cathy",   pick1: "Cameron Young", pick2: "—", winPct: "", draftOrder: 3  },
   { name: "Brandon", pick1: "Xander Schauffele", pick2: "—", winPct: "", draftOrder: 4  },
-  { name: "Mandy",   pick1: "Matt Fitzpatrick", pick2: "—", winPct: "", draftOrder: 5  },
+  { name: "Mandy",   pick1: "Matt Fitzpatrick", pick2: "Chris Gotterup", winPct: "", draftOrder: 5  },
   { name: "Luke",    pick1: "Ludvig Åberg", pick2: "Bryson DeChambeau", winPct: "", draftOrder: 6  },
   { name: "Sandy",   pick1: "Tommy Fleetwood", pick2: "J.J. Spaun", winPct: "", draftOrder: 7  },
   { name: "Conor",   pick1: "Brooks Koepka", pick2: "Justin Thomas", winPct: "", draftOrder: 8  },
