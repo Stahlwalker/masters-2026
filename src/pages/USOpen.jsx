@@ -12,17 +12,28 @@ const THEME = {
   projectedWinnerBg: "linear-gradient(150deg, #001845 0%, #002D72 45%, #000e2e 100%)",
   badge1Bg: "linear-gradient(135deg, #e8173e 0%, #8c0028 100%)",
   badge1Text: "#fff",
-  leaderboardUrl: null,
-  watchLiveUrl: null,
+  leaderboardUrl: "https://www.usopen.com/",
+  watchLiveUrl: "#",
+  potAmount: "$50",
 };
 
-const PLACEHOLDER = [
-  { name: "TBD", pick1: "—", pick2: "—", winPct: "" },
+const PARTICIPANTS = [
+  { name: "Nate",    pick1: "—", pick2: "—", winPct: "" },
+  { name: "Sandy",   pick1: "—", pick2: "—", winPct: "" },
+  { name: "Mandy",   pick1: "—", pick2: "—", winPct: "" },
+  { name: "Jackie",  pick1: "—", pick2: "—", winPct: "" },
+  { name: "Cathy",   pick1: "—", pick2: "—", winPct: "" },
+  { name: "Floyd",   pick1: "—", pick2: "—", winPct: "" },
+  { name: "Tori",    pick1: "—", pick2: "—", winPct: "" },
+  { name: "Luke",    pick1: "—", pick2: "—", winPct: "" },
+  { name: "Conor",   pick1: "—", pick2: "—", winPct: "" },
+  { name: "Brandon", pick1: "—", pick2: "—", winPct: "" },
 ];
-const PLACEHOLDER_SCORES = {
-  TBD: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-};
+
+const SCORES = Object.fromEntries(
+  PARTICIPANTS.map(({ name }) => [name, { pick1: [null, null, null, null], pick2: [null, null, null, null] }])
+);
 
 export default function USOpen() {
-  return <MajorLeaderboard theme={THEME} participants={PLACEHOLDER} scores={PLACEHOLDER_SCORES} comingSoon />;
+  return <MajorLeaderboard theme={THEME} participants={PARTICIPANTS} scores={SCORES} />;
 }
