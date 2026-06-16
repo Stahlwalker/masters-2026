@@ -18,16 +18,16 @@ const THEME = {
 };
 
 const PARTICIPANTS = [
-  { name: "Jackie",  pick1: "Scottie Scheffler", pick2: "Russell Henley", winPct: "", draftOrder: 1  },
-  { name: "Nate",    pick1: "Rory McIlroy", pick2: "Si Woo Kim", winPct: "", draftOrder: 2  },
-  { name: "Cathy",   pick1: "Cameron Young", pick2: "Justin Rose", winPct: "", draftOrder: 3  },
-  { name: "Brandon", pick1: "Xander Schauffele", pick2: "Aaron Rai", winPct: "", draftOrder: 4  },
-  { name: "Mandy",   pick1: "Matt Fitzpatrick", pick2: "Chris Gotterup", winPct: "", draftOrder: 5  },
-  { name: "Luke",    pick1: "Ludvig Åberg", pick2: "Bryson DeChambeau", winPct: "", draftOrder: 6  },
-  { name: "Sandy",   pick1: "Tommy Fleetwood", pick2: "J.J. Spaun", winPct: "", draftOrder: 7  },
-  { name: "Conor",   pick1: "Brooks Koepka", pick2: "Justin Thomas", winPct: "", draftOrder: 8  },
-  { name: "Floyd",   pick1: "Collin Morikawa", pick2: "Ben Griffin", winPct: "", draftOrder: 9  },
-  { name: "Tori",    pick1: "Jon Rahm", pick2: "Wyndham Clark", winPct: "", draftOrder: 10 },
+  { name: "Jackie",  pick1: "Scottie Scheffler", pick1Rank: 1,   pick2: "Russell Henley",    pick2Rank: 5,  winPct: "10.7%", draftOrder: 1  },
+  { name: "Cathy",   pick1: "Cameron Young",      pick1Rank: 3,   pick2: "Justin Rose",       pick2Rank: 7,  winPct: "10.6%", draftOrder: 3  },
+  { name: "Mandy",   pick1: "Matt Fitzpatrick",   pick1Rank: 4,   pick2: "Chris Gotterup",    pick2Rank: 11, winPct: "10.5%", draftOrder: 5  },
+  { name: "Sandy",   pick1: "Tommy Fleetwood",    pick1Rank: 6,   pick2: "J.J. Spaun",        pick2Rank: 9,  winPct: "10.5%", draftOrder: 7  },
+  { name: "Nate",    pick1: "Rory McIlroy",       pick1Rank: 2,   pick2: "Si Woo Kim",        pick2Rank: 18, winPct: "10.4%", draftOrder: 2  },
+  { name: "Floyd",   pick1: "Collin Morikawa",    pick1Rank: 10,  pick2: "Ben Griffin",       pick2Rank: 15, winPct: "10.2%", draftOrder: 9  },
+  { name: "Brandon", pick1: "Xander Schauffele",  pick1Rank: 12,  pick2: "Aaron Rai",         pick2Rank: 14, winPct: "10.2%", draftOrder: 4  },
+  { name: "Tori",    pick1: "Jon Rahm",           pick1Rank: 8,   pick2: "Wyndham Clark",     pick2Rank: 34, winPct: "9.8%",  draftOrder: 10 },
+  { name: "Luke",    pick1: "Ludvig Åberg",       pick1Rank: 13,  pick2: "Bryson DeChambeau", pick2Rank: 32, winPct: "9.7%",  draftOrder: 6  },
+  { name: "Conor",   pick1: "Brooks Koepka",      pick1Rank: 110, pick2: "Justin Thomas",     pick2Rank: 16, winPct: "7.5%",  draftOrder: 8  },
 ];
 
 const SCORES = Object.fromEntries(
