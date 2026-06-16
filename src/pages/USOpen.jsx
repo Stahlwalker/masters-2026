@@ -18,9 +18,9 @@ const THEME = {
 };
 
 const PARTICIPANTS = [
-  { name: "Jackie",  pick1: "Scottie Scheffler", pick2: "—", winPct: "", draftOrder: 1  },
-  { name: "Nate",    pick1: "Rory McIlroy", pick2: "—", winPct: "", draftOrder: 2  },
-  { name: "Cathy",   pick1: "Cameron Young", pick2: "—", winPct: "", draftOrder: 3  },
+  { name: "Jackie",  pick1: "Scottie Scheffler", pick2: "Russell Henley", winPct: "", draftOrder: 1  },
+  { name: "Nate",    pick1: "Rory McIlroy", pick2: "Si Woo Kim", winPct: "", draftOrder: 2  },
+  { name: "Cathy",   pick1: "Cameron Young", pick2: "Justin Rose", winPct: "", draftOrder: 3  },
   { name: "Brandon", pick1: "Xander Schauffele", pick2: "Aaron Rai", winPct: "", draftOrder: 4  },
   { name: "Mandy",   pick1: "Matt Fitzpatrick", pick2: "Chris Gotterup", winPct: "", draftOrder: 5  },
   { name: "Luke",    pick1: "Ludvig Åberg", pick2: "Bryson DeChambeau", winPct: "", draftOrder: 6  },
