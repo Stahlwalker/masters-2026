@@ -12,8 +12,8 @@ const THEME = {
   projectedWinnerBg: "linear-gradient(150deg, #001845 0%, #002D72 45%, #000e2e 100%)",
   badge1Bg: "linear-gradient(135deg, #e8173e 0%, #8c0028 100%)",
   badge1Text: "#fff",
-  leaderboardUrl: "https://www.usopen.com/",
-  watchLiveUrl: "#",
+  leaderboardUrl: "https://www.pgatour.com/leaderboard",
+  watchLiveUrl: "https://www.usanetwork.com/live?brand=golf&callsign=golf",
   potAmount: "$50",
 };
 
