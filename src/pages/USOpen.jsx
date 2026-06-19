@@ -30,9 +30,18 @@ const PARTICIPANTS = [
   { name: "Conor",   pick1: "Brooks Koepka",      pick1Rank: 110, pick2: "Justin Thomas",     pick2Rank: 16, winPct: "7.5%",  draftOrder: 8  },
 ];
 
-const SCORES = Object.fromEntries(
-  PARTICIPANTS.map(({ name }) => [name, { pick1: [null, null, null, null], pick2: [null, null, null, null] }])
-);
+const SCORES = {
+  Jackie:  { pick1: [+2,   null, null, null], pick2: [0,    null, null, null] },
+  Cathy:   { pick1: [+2,   null, null, null], pick2: [null, null, null, null] },
+  Mandy:   { pick1: [-2,   null, null, null], pick2: [+5,   null, null, null] },
+  Sandy:   { pick1: [0,    null, null, null], pick2: [+7,   null, null, null] },
+  Nate:    { pick1: [-1,   null, null, null], pick2: [+7,   null, null, null] },
+  Floyd:   { pick1: [+3,   null, null, null], pick2: [null, null, null, null] },
+  Brandon: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Tori:    { pick1: [-2,   null, null, null], pick2: [-6,   null, null, null] },
+  Luke:    { pick1: [-1,   null, null, null], pick2: [-1,   null, null, null] },
+  Conor:   { pick1: [+3,   null, null, null], pick2: [null, null, null, null] },
+};
 
 export default function USOpen() {
   return <MajorLeaderboard theme={THEME} participants={PARTICIPANTS} scores={SCORES} />;
