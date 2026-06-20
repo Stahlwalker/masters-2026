@@ -31,16 +31,16 @@ const PARTICIPANTS = [
 ];
 
 const SCORES = {
-  Jackie:  { pick1: [+2,   null, null, null], pick2: [0,    null, null, null] },
-  Cathy:   { pick1: [+2,   null, null, null], pick2: [null, null, null, null] },
-  Mandy:   { pick1: [-2,   null, null, null], pick2: [+5,   null, null, null] },
-  Sandy:   { pick1: [0,    null, null, null], pick2: [+7,   null, null, null] },
-  Nate:    { pick1: [-1,   null, null, null], pick2: [+7,   null, null, null] },
-  Floyd:   { pick1: [+3,   null, null, null], pick2: [null, null, null, null] },
-  Brandon: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Tori:    { pick1: [-2,   null, null, null], pick2: [-6,   null, null, null] },
-  Luke:    { pick1: [-1,   null, null, null], pick2: [-1,   null, null, null] },
-  Conor:   { pick1: [+3,   null, null, null], pick2: [null, null, null, null] },
+  Jackie:  { pick1: [+2,   0, null, null], pick2: [0,   +3, null, null] },
+  Cathy:   { pick1: [+2,  +2, null, null], pick2: [+1,  +1, null, null] },
+  Mandy:   { pick1: [-2,  -2, null, null], pick2: [+5,  +4, null, null] },
+  Sandy:   { pick1: [0,   +1, null, null], pick2: [+7,  +8, null, null], pick2Cut: true },
+  Nate:    { pick1: [-1,   0, null, null], pick2: [+7,  +6, null, null], pick2Cut: true },
+  Floyd:   { pick1: [+3,  -2, null, null], pick2: [+2,  +2, null, null] },
+  Brandon: { pick1: [+1,  -3, null, null], pick2: [+4,  +1, null, null] },
+  Tori:    { pick1: [-2,  +6, null, null], pick1Cut: true, pick2: [-6,  -7, null, null] },
+  Luke:    { pick1: [-1,  +1, null, null], pick2: [-1,  +4, null, null], pick2Cut: true },
+  Conor:   { pick1: [+3, +10, null, null], pick1Cut: true, pick2: [+1,  -1, null, null] },
 };
 
 export default function USOpen() {
