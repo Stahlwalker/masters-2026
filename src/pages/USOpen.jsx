@@ -13,7 +13,6 @@ const THEME = {
   badge1Bg: "linear-gradient(135deg, #e8173e 0%, #8c0028 100%)",
   badge1Text: "#fff",
   leaderboardUrl: "https://www.pgatour.com/leaderboard",
-  watchLiveUrl: "https://www.usanetwork.com/live?brand=golf&callsign=golf",
   potAmount: "$50",
 };
 
@@ -31,18 +30,18 @@ const PARTICIPANTS = [
 ];
 
 const SCORES = {
-  Jackie:  { pick1: [+2,   0,  -1, null], pick2: [0,   +3, +13, null] },
-  Cathy:   { pick1: [+2,  +2,  +5, null], pick2: [+1,  +1,  +4, null] },
-  Mandy:   { pick1: [-2,  -2,  +2, null], pick2: [+5,  +4,  +7, null] },
-  Sandy:   { pick1: [0,   +1,  +1, null], pick2: [+7,  +8, null, null], pick2Cut: true },
-  Nate:    { pick1: [-1,   0,  +3, null], pick2: [+7,  +6, null, null], pick2Cut: true },
-  Floyd:   { pick1: [+3,  -2,  +1, null], pick2: [+2,  +2,  +4, null] },
-  Brandon: { pick1: [+1,  -3,   0, null], pick2: [+4,  +1,  +3, null] },
-  Tori:    { pick1: [-2,  +6, null, null], pick1Cut: true, pick2: [-6,  -7,  -7, null] },
-  Luke:    { pick1: [-1,  +1,  +7, null], pick2: [-1,  +4, null, null], pick2Cut: true },
-  Conor:   { pick1: [+3, +10, null, null], pick1Cut: true, pick2: [+1,  -1,  +4, null] },
+  Jackie:  { pick1: [+2,   0,  -1,  0],  pick2: [0,   +3, +13, +14] },
+  Cathy:   { pick1: [+2,  +2,  +5, +8],  pick2: [+1,  +1,  +4,  +2] },
+  Mandy:   { pick1: [-3,  -3,  +1, +4],  pick2: [+5,  +4,  +7,  +8] },
+  Sandy:   { pick1: [0,   +1,  +1, +2],  pick2: [+7,  +8, null, null], pick2Cut: true },
+  Nate:    { pick1: [-1,   0,  +3, +6],  pick2: [+7,  +6, null, null], pick2Cut: true },
+  Floyd:   { pick1: [+3,  -2,  +1, +3],  pick2: [+2,  +2,  +4,  +3] },
+  Brandon: { pick1: [+1,  -3,   0, +2],  pick2: [+4,  +1,  +3,  +2] },
+  Tori:    { pick1: [-2,  +6, null, null], pick1Cut: true, pick2: [-6,  -7,  -7,  -4] },
+  Luke:    { pick1: [-1,  +1,  +7, +3],  pick2: [-1,  +4, null, null], pick2Cut: true },
+  Conor:   { pick1: [+3, +10, null, null], pick1Cut: true, pick2: [+1,  -1,  +4,  +3] },
 };
 
 export default function USOpen() {
-  return <MajorLeaderboard theme={THEME} participants={PARTICIPANTS} scores={SCORES} />;
+  return <MajorLeaderboard theme={THEME} participants={PARTICIPANTS} scores={SCORES} final />;
 }
