@@ -215,6 +215,16 @@ export default function MajorLeaderboard({ theme, participants, scores, comingSo
               🔴 Watch Live
             </a>
           )}
+          {!theme.watchLiveUrl && theme.watchLivePlaceholder && (
+            <span style={{
+              padding: "7px 14px", fontSize: 12, fontWeight: 600, borderRadius: 30,
+              background: "linear-gradient(135deg, #d0d0d0, #a8a8a8)",
+              color: "#fff", display: "flex", alignItems: "center", gap: 5,
+              cursor: "default", opacity: 0.75,
+            }}>
+              🔴 Watch Live · TBD
+            </span>
+          )}
         </div>
       </div>
 

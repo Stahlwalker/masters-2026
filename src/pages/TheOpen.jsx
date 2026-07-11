@@ -12,17 +12,37 @@ const THEME = {
   projectedWinnerBg: "linear-gradient(150deg, #0a1520 0%, #0d1c2e 45%, #060c14 100%)",
   badge1Bg: "linear-gradient(135deg, #d4b96a 0%, #9e7c30 100%)",
   badge1Text: "#fff",
-  leaderboardUrl: null,
-  watchLiveUrl: null,
+  leaderboardUrl: "https://www.theopen.com/leaderboard",
+  watchLivePlaceholder: true,
+  potAmount: "$50",
 };
 
-const PLACEHOLDER = [
-  { name: "TBD", pick1: "—", pick2: "—", winPct: "" },
+const PARTICIPANTS = [
+  { name: "Jackie",  pick1: "TBD", pick2: "TBD", draftOrder: 1  },
+  { name: "Nate",    pick1: "TBD", pick2: "TBD", draftOrder: 2  },
+  { name: "Cathy",   pick1: "TBD", pick2: "TBD", draftOrder: 3  },
+  { name: "Brandon", pick1: "TBD", pick2: "TBD", draftOrder: 4  },
+  { name: "Mandy",   pick1: "TBD", pick2: "TBD", draftOrder: 5  },
+  { name: "Luke",    pick1: "TBD", pick2: "TBD", draftOrder: 6  },
+  { name: "Sandy",   pick1: "TBD", pick2: "TBD", draftOrder: 7  },
+  { name: "Conor",   pick1: "TBD", pick2: "TBD", draftOrder: 8  },
+  { name: "Floyd",   pick1: "TBD", pick2: "TBD", draftOrder: 9  },
+  { name: "Tori",    pick1: "TBD", pick2: "TBD", draftOrder: 10 },
 ];
-const PLACEHOLDER_SCORES = {
-  TBD: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+
+const SCORES = {
+  Jackie:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Nate:    { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Cathy:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Brandon: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Mandy:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Luke:    { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Sandy:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Conor:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Floyd:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Tori:    { pick1: [null, null, null, null], pick2: [null, null, null, null] },
 };
 
 export default function TheOpen() {
-  return <MajorLeaderboard theme={THEME} participants={PLACEHOLDER} scores={PLACEHOLDER_SCORES} comingSoon />;
+  return <MajorLeaderboard theme={THEME} participants={PARTICIPANTS} scores={SCORES} />;
 }
