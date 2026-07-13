@@ -14,33 +14,36 @@ const THEME = {
   badge1Text: "#fff",
   leaderboardUrl: "https://www.theopen.com/leaderboard",
   watchLivePlaceholder: true,
-  potAmount: "$50",
+  potAmount: "$100",
 };
 
+// Snake draft — R1 forward, R2 reverse
+// R1: Cathy(1) → Tori(2) → Mandy(3) → Conor(4) → Jackie(5) → Luke(6) → Nate(7) → Floyd(8) → Brandon(9) → Sandy(10)
+// R2: Sandy(11) → Brandon(12) → Floyd(13) → Nate(14) → Luke(15) → Jackie(16) → Conor(17) → Mandy(18) → Tori(19) → Cathy(20)
 const PARTICIPANTS = [
-  { name: "Jackie",  pick1: "TBD", pick2: "TBD", draftOrder: 1  },
-  { name: "Nate",    pick1: "TBD", pick2: "TBD", draftOrder: 2  },
-  { name: "Cathy",   pick1: "TBD", pick2: "TBD", draftOrder: 3  },
-  { name: "Brandon", pick1: "TBD", pick2: "TBD", draftOrder: 4  },
-  { name: "Mandy",   pick1: "TBD", pick2: "TBD", draftOrder: 5  },
+  { name: "Cathy",   pick1: "TBD", pick2: "TBD", draftOrder: 1  },
+  { name: "Tori",    pick1: "TBD", pick2: "TBD", draftOrder: 2  },
+  { name: "Mandy",   pick1: "TBD", pick2: "TBD", draftOrder: 3  },
+  { name: "Conor",   pick1: "TBD", pick2: "TBD", draftOrder: 4  },
+  { name: "Jackie",  pick1: "TBD", pick2: "TBD", draftOrder: 5  },
   { name: "Luke",    pick1: "TBD", pick2: "TBD", draftOrder: 6  },
-  { name: "Sandy",   pick1: "TBD", pick2: "TBD", draftOrder: 7  },
-  { name: "Conor",   pick1: "TBD", pick2: "TBD", draftOrder: 8  },
-  { name: "Floyd",   pick1: "TBD", pick2: "TBD", draftOrder: 9  },
-  { name: "Tori",    pick1: "TBD", pick2: "TBD", draftOrder: 10 },
+  { name: "Nate",    pick1: "TBD", pick2: "TBD", draftOrder: 7  },
+  { name: "Floyd",   pick1: "TBD", pick2: "TBD", draftOrder: 8  },
+  { name: "Brandon", pick1: "TBD", pick2: "TBD", draftOrder: 9  },
+  { name: "Sandy",   pick1: "TBD", pick2: "TBD", draftOrder: 10 },
 ];
 
 const SCORES = {
-  Jackie:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Nate:    { pick1: [null, null, null, null], pick2: [null, null, null, null] },
   Cathy:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Brandon: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Mandy:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Luke:    { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Sandy:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Conor:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Floyd:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
   Tori:    { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Mandy:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Conor:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Jackie:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Luke:    { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Nate:    { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Floyd:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Brandon: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Sandy:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
 };
 
 export default function TheOpen() {
