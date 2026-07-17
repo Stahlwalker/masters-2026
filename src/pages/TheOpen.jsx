@@ -13,7 +13,7 @@ const THEME = {
   badge1Bg: "linear-gradient(135deg, #d4b96a 0%, #9e7c30 100%)",
   badge1Text: "#fff",
   leaderboardUrl: "https://www.theopen.com/leaderboard",
-  watchLivePlaceholder: true,
+  watchLiveUrl: "https://www.randa.tv/home",
   potAmount: "$100",
 };
 
@@ -34,16 +34,16 @@ const PARTICIPANTS = [
 ];
 
 const SCORES = {
-  Cathy:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Tori:    { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Mandy:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Luke:    { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Nate:    { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Floyd:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Sandy:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Conor:   { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Brandon: { pick1: [null, null, null, null], pick2: [null, null, null, null] },
-  Jackie:  { pick1: [null, null, null, null], pick2: [null, null, null, null] },
+  Cathy:   { pick1: [-2, -2, null, null], pick2: [0,  -2,   null, null] },  // Scheffler -2; Spaun -2
+  Tori:    { pick1: [2,  0,  null, null], pick2: [3,  7,    null, null] },  // McIlroy 0; Clark +7
+  Mandy:   { pick1: [2,  -1, null, null], pick2: [1,  2,    null, null] },  // Fitzpatrick -1; Rai +2
+  Luke:    { pick1: [-3, -4, null, null], pick2: [3,  -1,   null, null] },  // Young -4; Burns -1
+  Nate:    { pick1: [0,  -2, null, null], pick2: [0,  0,    null, null] },  // Gotterup -2; Hovland E
+  Floyd:   { pick1: [0,  0,  null, null], pick2: [-1, -1,   null, null] },  // Henley 0; Griffin -1
+  Sandy:   { pick1: [1,  1,  null, null], pick2: [5,  5,    null, null] },  // Schauffele E; Rose +5
+  Conor:   { pick1: [-1, 1,  null, null], pick2: [-3, -3,   null, null] },  // Fleetwood +2 today; MacIntyre -3
+  Brandon: { pick1: [-1, 1,  null, null], pick2: [1,  -1,   null, null] },  // Rahm +2 today; Åberg -1
+  Jackie:  { pick1: [-2, -5, null, null], pick2: [-3, -3,   null, null] },  // Morikawa -5; DeChambeau -3
 };
 
 export default function TheOpen() {
