@@ -34,16 +34,16 @@ const PARTICIPANTS = [
 ];
 
 const SCORES = {
-  Cathy:   { pick1: [-2, -4, null, null], pick2: [0,  -3, null, null] },  // Scheffler thru R2: -4; Spaun thru R2: -3
-  Tori:    { pick1: [2,  -1, null, null], pick2: [3,  3,  null, null], pick2Cut: true },  // McIlroy thru R2: -1 (made cut); Clark thru R2: +3 (missed cut)
-  Mandy:   { pick1: [2,  4,  null, null], pick2: [1,  2,  null, null], pick1Cut: true, pick2Cut: true },  // Fitzpatrick thru R2: +4 (missed cut); Rai thru R2: +2 (missed cut)
-  Luke:    { pick1: [-3, -6, null, null], pick2: [3,  -5, null, null] },  // Young thru R2: -6; Burns thru R2: -5
-  Nate:    { pick1: [0,  -2, null, null], pick2: [0,  4,  null, null], pick2Cut: true },  // Gotterup thru R2: -2; Hovland thru R2: +4 (missed cut)
-  Floyd:   { pick1: [0,  1,  null, null], pick2: [-1, -1, null, null] },  // Henley thru R2: +1 (made cut, right on the number); Griffin thru R2: -1 (made cut)
-  Sandy:   { pick1: [1,  0,  null, null], pick2: [5,  3,  null, null], pick2Cut: true },  // Schauffele thru R2: E; Rose thru R2: +3 (missed cut)
-  Conor:   { pick1: [-1, -4, null, null], pick2: [-3, -4, null, null] },  // Fleetwood thru R2: -4; MacIntyre thru R2: -4
-  Brandon: { pick1: [-1, -4, null, null], pick2: [1,  -3, null, null] },  // Rahm thru R2: -4; Åberg thru R2: -3 (made cut)
-  Jackie:  { pick1: [-2, -2, null, null], pick2: [-3, -5, null, null] },  // Morikawa thru R2: -2; DeChambeau thru R2: -5
+  Cathy:   { pick1: [-2, -4, -4, null], pick2: [0,  -3, 0,  null] },  // Scheffler thru R3: -4; Spaun thru R3: E
+  Tori:    { pick1: [2,  -1, -2, null], pick2: [3,  3,  null, null], pick2Cut: true },  // McIlroy thru R3: -2; Clark missed cut (frozen +3)
+  Mandy:   { pick1: [2,  4,  null, null], pick2: [1,  2,  null, null], pick1Cut: true, pick2Cut: true },  // Fitzpatrick missed cut (frozen +4); Rai missed cut (frozen +2)
+  Luke:    { pick1: [-3, -6, -3, null], pick2: [3,  -5, -10, null] },  // Young thru R3: -3; Burns thru R3: -10 (leads pool)
+  Nate:    { pick1: [0,  -2, 0,  null], pick2: [0,  4,  null, null], pick2Cut: true },  // Gotterup thru R3: E; Hovland missed cut (frozen +4)
+  Floyd:   { pick1: [0,  1,  -1, null], pick2: [-1, -1, 3,  null] },  // Henley thru R3: -1; Griffin thru R3: +3
+  Sandy:   { pick1: [1,  0,  -4, null], pick2: [5,  3,  null, null], pick2Cut: true },  // Schauffele thru R3: -4; Rose missed cut (frozen +3)
+  Conor:   { pick1: [-1, -4, -5, null], pick2: [-3, -4, -3, null] },  // Fleetwood thru R3: -5; MacIntyre thru R3: -3
+  Brandon: { pick1: [-1, -4, -4, null], pick2: [1,  -3, -6, null] },  // Rahm thru R3: -4; Åberg thru R3: -6
+  Jackie:  { pick1: [-2, -2, -2, null], pick2: [-3, -5, -6, null] },  // Morikawa thru R3: -2; DeChambeau thru R3: -6
 };
 
 export default function TheOpen() {
