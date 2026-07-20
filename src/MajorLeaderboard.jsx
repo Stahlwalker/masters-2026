@@ -64,6 +64,12 @@ const getBestScore = (scores, name, day) => {
   return Math.min(pick1Total, pick2Total);
 };
 
+const getSecondScore = (scores, name, day) => {
+  const { pick1Total, pick2Total } = getTotal(scores, name, day);
+  if (pick1Total === null || pick2Total === null) return null;
+  return Math.max(pick1Total, pick2Total);
+};
+
 export default function MajorLeaderboard({ theme, participants, scores, comingSoon, final }) {
   const [activeDay, setActiveDay] = useState(() => latestRound(scores));
   const width = useWindowWidth();
@@ -75,7 +81,15 @@ export default function MajorLeaderboard({ theme, participants, scores, comingSo
     if (sa === null && sb === null) return 0;
     if (sa === null) return 1;
     if (sb === null) return -1;
-    return sa - sb;
+    if (sa !== sb) return sa - sb;
+
+    // Tiebreaker: better (lower) second pick wins
+    const sa2 = getSecondScore(scores, a.name, activeDay);
+    const sb2 = getSecondScore(scores, b.name, activeDay);
+    if (sa2 === null && sb2 === null) return 0;
+    if (sa2 === null) return 1;
+    if (sb2 === null) return -1;
+    return sa2 - sb2;
   });
 
   const dayLabel = DAYS[activeDay].split(" ")[0];
